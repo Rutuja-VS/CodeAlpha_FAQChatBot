@@ -37,5 +37,5 @@ CodeAlpha_FAQChatbot/
 
 ### Clone Repository
 ```bash
-git clone <your-github-repo-link>
+git clone https://github.com/Rutuja-VS/CodeAlpha_FAQChatBot.git
 cd CodeAlpha_FAQChatbot
