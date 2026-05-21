@@ -1,9 +1,11 @@
 import html as _html
 import streamlit as st
+import time
+import pytz
 from styles import styles
 from chatbot import get_response
-import time
 from datetime import datetime
+
 
 st.set_page_config(
     page_title="CareerBot — AI Career Assistant", page_icon="💼", layout="centered"
@@ -161,7 +163,8 @@ def handle_send(query: str) -> None:
     query = query.strip()
     if not query:
         return
-    ts = datetime.now().strftime("%I:%M %p")
+    india = pytz.timezone("Asia/Kolkata")
+    ts = datetime.now(india).strftime("%I:%M %p")
     st.session_state.messages.append({"role": "user", "content": query, "time": ts})
     with st.spinner("Thinking…"):
         time.sleep(0.4)
