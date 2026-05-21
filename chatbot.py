@@ -41,13 +41,23 @@ question_vectors = vectorizer.fit_transform(data["processed_question"])
 
 # Chatbot function
 def get_response(user_input):
+    career_keywords = [
+        "placement","placements","resume","cv","interview", "interviews","career","job","jobs","company",
+        "companies", "aptitude", "technical","hr","salary", "internship", "campus", "fresher", "skills", "engineering",
+        "linkedin", "offer", "offer letter", "recruitment", "communication", "higher studies", "masters", "mtech", "mba", "data science",
+        "software engineer", "developer", "coding", "dsa",  "study", "preparation","placement drive", "career growth", "work", "role",
+        "industry","consulting","product based","service based"
+    ]
+
+    if not any(word in user_input.lower() for word in career_keywords):
+        return "Please ask career or placement related questions."
     processed_input = preprocess_text(user_input)
     input_vector = vectorizer.transform([processed_input])
     similarity = cosine_similarity(input_vector, question_vectors)
     best_match_index = similarity.argmax()
     best_score = similarity[0][best_match_index]
 
-    if best_score < 0.4:
+    if best_score < 0.3:
         return "Sorry, I couldn't find a relevant answer. Please ask placement, interview, resume, or career related questions."
 
     response = data.iloc[best_match_index]["Answer"]
