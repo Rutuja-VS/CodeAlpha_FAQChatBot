@@ -21,6 +21,10 @@ An NLP-powered chatbot that provides intelligent answers to placement and career
 - Pandas
 
 ## Screenshots
+![](images/1.png)
+![](images/2.png)
+![](images/3.png) 
+![](images/4.png)
 
 ## Project Structure
 CodeAlpha_FAQChatbot/

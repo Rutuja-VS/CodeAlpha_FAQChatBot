@@ -51,6 +51,7 @@ def get_response(user_input):
 
     if not any(word in user_input.lower() for word in career_keywords):
         return "Please ask career or placement related questions."
+    
     processed_input = preprocess_text(user_input)
     input_vector = vectorizer.transform([processed_input])
     similarity = cosine_similarity(input_vector, question_vectors)
