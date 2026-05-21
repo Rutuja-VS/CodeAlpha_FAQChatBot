@@ -47,7 +47,7 @@ def get_response(user_input):
     best_match_index = similarity.argmax()
     best_score = similarity[0][best_match_index]
 
-    if best_score < 0.3:
+    if best_score < 0.5:
         return "Sorry, I couldn't find a relevant answer. Please ask placement, interview, resume, or career related questions."
 
     response = data.iloc[best_match_index]["Answer"]
